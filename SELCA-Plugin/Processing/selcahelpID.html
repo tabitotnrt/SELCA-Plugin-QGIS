@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SELCA Plugin Help</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+  <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800,900" rel="stylesheet"/>
+  <link rel="stylesheet" href="scribbler-global.css" />
+  <link rel="stylesheet" href="scribbler-doc.css" />
+</head>
+<body>
+
+<div class="doc__bg"></div>
+<nav class="header">
+  <h1 class="logo">SELCA <span class="logo__thin">Help</span></h1>
+  <ul class="menu">
+    <div class="menu__item toggle"><span></span></div>
+    <li class="menu__item">
+      <a href="https://github.com/tabito" target="_blank" class="link link--dark">
+        <i class="fa fa-github"></i> GITHUB
+      </a>
+    </li>
+    <li class="menu__item">
+      <a href="selcahelpEN.html" class="link link--dark"><i class="fa fa-globe"></i> EN</a>
+    </li>
+  </ul>
+</nav>
+
+<div class="wrapper">
+  <aside class="doc__nav">
+    
+<ul>
+  <h1>Modul:</h1>
+  <li><a href="#selca">SELCA Overview</a></li>
+  <li><a href="#assign-class">Assign Class</a></li>
+  <li><a href="#transition-matrix">Land Cover Insight</a></li>
+  <li><a href="#dependent-insight">Dependent Insight</a></li>
+  <li><a href="#regression">Regression</a></li>
+  <li><a href="#estimation">Estimation</a></li>
+  <li><a href="#citycenter">City Center Trend Analysis</a></li>
+  <li><a href="#localmorans">Detecting Spatial Clusters and Outliers</a></li>
+  <li><a href="#lq">Economic Sector Specialization Analysis</a></li>
+  <li><a href="#globalmorans">Global Spatial Pattern Analysis</a></li>
+</ul>
+
+
+  </aside>
+
+  <article class="doc__content">
+    <section class="js-section">
+      <h3 class="section__title">SELCA Overview</h3>
+      <p>SELCA adalah plugin QGIS yang menganalisis korelasi antara perubahan tutupan lahan dan variabel dependen seperti jumlah penduduk dan PDRB, serta menyediakan estimasi probabilistik terhadap pola tutupan lahan di masa depan.</p>
+    </section>
+    
+<section class="js-section">
+  <h3 class="section__title" id="assign-class">Assign Class</h3>
+  <p>Memberi nama kelas yang lebih deskriptif pada nilai-nilai kelas dalam raster tutupan lahan.</p>
+  <p><strong>(PARAMETER)</strong></p>
+  <table><tr><th>Label</th><th>Name</th><th>Type</th><th>Description</th></tr>
+    <tr><td>Raster Layer</td><td>INPUT</td><td>[raster]</td><td>Raster tutupan lahan yang akan diklasifikasikan ulang</td></tr>
+  </table>
+  <p><strong>(OUTPUT)</strong></p>
+  <table><tr><th>Label</th><th>Name</th><th>Type</th><th>Description</th></tr>
+    <tr><td>Reclassified Raster</td><td>OUTPUT</td><td>[raster]</td><td>Raster dengan label kelas baru</td></tr>
+  </table>
+</section>
+
+<section class="js-section">
+  <h3 class="section__title" id="transition-matrix">Land Cover Insight</h3>
+  <p>Menghitung perubahan antar kelas tutupan lahan dari waktu ke waktu dalam bentuk matriks transisi.</p>
+  <p><strong>(PARAMETER)</strong></p>
+  <table><tr><th>Label</th><th>Name</th><th>Type</th><th>Description</th></tr>
+    <tr><td>Initial Raster</td><td>INPUT1</td><td>[raster]</td><td>Raster awal</td></tr>
+    <tr><td>Final Raster</td><td>INPUT2</td><td>[raster]</td><td>Raster akhir</td></tr>
+  </table>
+  <p><strong>(OUTPUT)</strong></p>
+  <p>Menghasilkan Output berupa grafik area statistik dari tutupan lahan, land cover transition matrix dalam (area/km²), land cover transition matrix heat map, dan deskriptif teks penjelasan.</p>
+  <table><tr><th>Label</th><th>Name</th><th>Type</th><th>Description</th></tr>
+    <tr><td>Matrix Table</td><td>OUTPUT</td><td>[CSV/Table]</td><td>Matriks transisi dalam satuan luas dan persentase</td></tr>
+  </table>
+</section>
+
+<section class="js-section">
+  <h3 class="section__title" id="dependent-insight">Dependent Insight</h3>
+  <p>Menampilkan hubungan antara luas tutupan lahan dan variabel dependen, disertai grafik serta visualisasi pergeseran titik pusat tutupan lahan. Pengguna juga dapat menginput variabel seperti PDRB, jumlah penduduk, dan lainnya.</p>
+  <p><strong>(OUTPUT)</strong></p>
+  <table><tr><th>Label</th><th>Name</th><th>Type</th><th>Description</th></tr>
+    <tr><td>Plot</td><td>CHART</td><td>[PNG]</td><td>Visualisasi scatterplot hubungan antar variabel</td></tr>
+  </table>
+</section>
+
+<section class="js-section">
+  <h3 class="section__title" id="regression">Regression</h3>
+  <p>Melakukan regresi spasial antar kelas tutupan dan variabel dependent dengan model Common, Fixed, dan Random Effect. Serta ada penjelasan deskriptif teksnya.</p>
+  <p><strong>(OUTPUT)</strong></p>
+  <table><tr><th>Label</th><th>Name</th><th>Type</th><th>Description</th></tr>
+    <tr><td>Hasil Regresi</td><td>CSV</td><td>[Table]</td><td>Hasil estimasi dan nilai koefisien</td></tr>
+    <tr><td>Plot</td><td>PNG</td><td>[Image]</td><td>Grafik hasil model</td></tr>
+  </table>
+</section>
+
+<section class="js-section">
+  <h3 class="section__title" id="estimation">Estimation</h3>
+  <p>Melakukan estimasi area kelas tutupan lahan di masa depan berdasarkan matriks transisi.</p>
+  <p><strong>(PARAMETER)</strong></p>
+  <table><tr><th>Label</th><th>Name</th><th>Type</th><th>Description</th></tr>
+    <tr><td>Matriks Transisi</td><td>MATRIX</td><td>[CSV]</td><td>Matrix hasil sebelumnya</td></tr>
+    <tr><td>Jumlah Tahun</td><td>YEARS</td><td>[Integer]</td><td>Berapa tahun ke depan</td></tr>
+  </table>
+  <p><strong>(OUTPUT)</strong></p>
+  <p>Menghasilkan output berupa persentase kelas tutupan lahan, matriks transisi antar kelas, hasil estimasi kelas tutupan lahan di masa depan, serta grafik perbandingan yang disesuaikan dengan jarak waktu.</p>
+  <table><tr><th>Label</th><th>Name</th><th>Type</th><th>Description</th></tr>
+    <tr><td>Estimasi Area</td><td>TABLE</td><td>[CSV]</td><td>Luasan estimasi kelas di masa depan</td></tr>
+  </table>
+</section>
+
+  
+<section class="js-section">
+  <h3 class="section__title" id="citycenter">City Center Trend Analysis</h3>
+  <p>Analisis pergeseran pusat kawasan terbangun dari tutupan lahan multitemporal.</p>
+  <p><strong>(PARAMETER)</strong></p>
+  <table>
+    <tr><th>Label</th><th>Name</th><th>Type</th><th>Description</th></tr>
+    <tr><td>Input Land Cover Layers</td><td>INPUT</td><td>[raster: multiple]</td><td>Layer raster tutupan lahan dari waktu berbeda</td></tr>
+    <tr><td>Built-up Value</td><td>BUILD</td><td>[number]</td><td>Nilai yang merepresentasikan area terbangun</td></tr>
+  </table>
+  <p><strong>(OUTPUT)</strong></p>
+  <p>Menghasilkan persebaran titik pusat massa serta arah pergeserannya.</p>
+  <table>
+    <tr><th>Label</th><th>Name</th><th>Type</th><th>Description</th></tr>
+    <tr><td>Centroid and Line Layer</td><td>OUTPUT</td><td>[vector: point+line]</td><td>Layer pusat dan arah pergeseran terbangun</td></tr>
+  </table>
+</section>
+
+<section class="js-section">
+  <h3 class="section__title" id="localmorans">Detecting Spatial Clusters and Outliers</h3>
+  <p>Deteksi HH, LL, HL, LH dari nilai variabel dan hubungan spasialnya menggunakan Local Moran's I.</p>
+  <p><strong>(PARAMETER)</strong></p>
+  <table>
+    <tr><th>Label</th><th>Name</th><th>Type</th><th>Description</th></tr>
+    <tr><td>Input Layer</td><td>INPUT</td><td>[vector: polygon]</td><td>Layer polygon input</td></tr>
+    <tr><td>Variable</td><td>VARIABLE</td><td>[field: numeric]</td><td>Field nilai numerik</td></tr>
+    <tr><td>ID Field</td><td>ID_FIELD</td><td>[field]</td><td>Kolom identitas unit spasial</td></tr>
+    <tr><td>Method</td><td>METHOD</td><td>[enum]</td><td>Queen/Rook/KNN/Distance Band</td></tr>
+    <tr><td>KNN/Threshold</td><td>KNN_DIST</td><td>[number]</td><td>Parameter bobot spasial</td></tr>
+  </table>
+  <p><strong>(OUTPUT)</strong></p>
+  <p>Menghasilkan layer berdasarkan hasil perhitungan parameter, disertai teks deskriptif dan tabel CSV sebagai output.</p>
+  <table>
+    <tr><th>Label</th><th>Name</th><th>Type</th><th>Description</th></tr>
+    <tr><td>Result Layer</td><td>OUTPUT</td><td>[vector]</td><td>Layer dengan field klasifikasi HH, LL, HL, LH</td></tr>
+    <tr><td>CSV</td><td>CSV_OUTPUT</td><td>[file]</td><td>File ringkasan nilai dan klasifikasi</td></tr>
+  </table>
+</section>
+
+<section class="js-section">
+  <h3 class="section__title" id="lq">Economic Sector Specialization Analysis</h3>
+  <p>Mengukur keunggulan relatif sektor ekonomi menggunakan Location Quotient (LQ).</p>
+  <p><strong>(PARAMETER)</strong></p>
+  <table>
+    <tr><th>Label</th><th>Name</th><th>Type</th><th>Description</th></tr>
+    <tr><td>Input Layer</td><td>INPUT</td><td>[vector]</td><td>Layer spasial input</td></tr>
+    <tr><td>Sector Value</td><td>VARIABLEX</td><td>[field]</td><td>Nilai sektor tertentu</td></tr>
+    <tr><td>Total Value</td><td>VARIABLEY</td><td>[field]</td><td>Total seluruh sektor</td></tr>
+  </table>
+  <p><strong>(OUTPUT)</strong></p>
+  <p>Menghasilkan layer berdasarkan hasil perhitungan parameter, disertai teks deskriptif dan tabel CSV sebagai output.</p>
+  <table>
+    <tr><th>Label</th><th>Name</th><th>Type</th><th>Description</th></tr>
+    <tr><td>Output Layer</td><td>OUTPUT</td><td>[vector]</td><td>Field LQ, klasifikasi dan interpretasi</td></tr>
+    <tr><td>CSV Output</td><td>CSV_OUTPUT</td><td>[file]</td><td>Hasil ekspor tabel LQ</td></tr>
+  </table>
+</section>
+
+<section class="js-section">
+  <h3 class="section__title" id="globalmorans">Global Spatial Pattern Analysis</h3>
+  <p>Menghitung Global Moran’s I untuk melihat apakah distribusi spasial dari variabel bersifat clustered, dispersed, atau random.</p>
+  <p><strong>(PARAMETER)</strong></p>
+  <table>
+    <tr><th>Label</th><th>Name</th><th>Type</th><th>Description</th></tr>
+    <tr><td>Input Layer</td><td>INPUT</td><td>[vector]</td><td>Layer polygon atau titik</td></tr>
+    <tr><td>Variable</td><td>VARIABLE</td><td>[field]</td><td>Field nilai numerik</td></tr>
+    <tr><td>Method</td><td>METHOD</td><td>[enum]</td><td>Metode bobot spasial</td></tr>
+    <tr><td>K/Threshold</td><td>PARAM</td><td>[number]</td><td>Parameter KNN atau jarak</td></tr>
+    <tr><td>Confidence</td><td>CONFIDENCE</td><td>[enum]</td><td>99%, 95%, 90%</td></tr>
+  </table>
+  <p><strong>(OUTPUT)</strong></p>
+  <p>Menghasilkan angka statistik serta teks deskriptif dan tabel CSV sebagai output.</p>
+  <table>
+    <tr><th>Label</th><th>Name</th><th>Type</th><th>Description</th></tr>
+    <tr><td>Plot</td><td>PLOT_OUTPUT</td><td>[PNG]</td><td>Scatterplot Moran’s I</td></tr>
+  </table>
+</section>
+
+</article>
+</div>
+
+    <footer class="footer">
+      Copyright by Tabito Tantarto, Fidella Anindya Kirana, Shanice Putrima Akia. 2025
+      <a
+        href="https://github.com/tabito"
+        target="_blank"
+        class="link link--light"
+        >Source Code</a
+      >.
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>
+      hljs.initHighlightingOnLoad();
+    </script>
+    <script src="scribbler.js"></script>
+  </body>
+</html>

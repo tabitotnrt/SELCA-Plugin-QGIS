@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SELCA Plugin Help</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+  <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800,900" rel="stylesheet"/>
+  <link rel="stylesheet" href="scribbler-global.css" />
+  <link rel="stylesheet" href="scribbler-doc.css" />
+</head>
+<body>
+
+<div class="doc__bg"></div>
+<nav class="header">
+  <h1 class="logo">SELCA <span class="logo__thin">Help</span></h1>
+  <ul class="menu">
+    <div class="menu__item toggle"><span></span></div>
+    <li class="menu__item">
+      <a href="https://github.com/tabito" target="_blank" class="link link--dark">
+        <i class="fa fa-github"></i> GITHUB
+      </a>
+    </li>
+    <li class="menu__item">
+      <a href="selcahelpID.html" class="link link--dark"><i class="fa fa-globe"></i> ID</a>
+    </li>
+  </ul>
+</nav>
+
+<div class="wrapper">
+  <aside class="doc__nav">
+    
+<ul>
+  <h1>Modules:</h1>
+  <li><a href="#selca">SELCA Overview</a></li>
+  <li><a href="#assign-class">Assign Class</a></li>
+  <li><a href="#transition-matrix">Land Cover Insight</a></li>
+  <li><a href="#dependent-insight">Dependent Insight</a></li>
+  <li><a href="#regression">Regression</a></li>
+  <li><a href="#estimation">Estimation</a></li>
+  <li><a href="#citycenter">City Center Trend Analysis</a></li>
+  <li><a href="#localmorans">Detecting Spatial Clusters and Outliers</a></li>
+  <li><a href="#lq">Economic Sector Specialization Analysis</a></li>
+  <li><a href="#globalmorans">Global Spatial Pattern Analysis</a></li>
+</ul>
+
+
+  </aside>
+
+  <article class="doc__content">
+    <section class="js-section">
+      <h3 class="section__title">SELCA Overview</h3>
+      <p>SELCA is a QGIS plugin that analyzes the correlation between land cover changes and dependent variables such as population and GDRP, and provides probabilistic estimations of future land cover patterns.</p>
+    </section>
+    
+<section class="js-section">
+  <h3 class="section__title" id="assign-class">Assign Class</h3>
+  <p>Assigns descriptive class names to the class values in the land cover raster.</p>
+  <p><strong>(PARAMETER)</strong></p>
+  <table><tr><th>Label</th><th>Name</th><th>Type</th><th>Description</th></tr>
+    <tr><td>Raster Layer</td><td>INPUT</td><td>[raster]</td><td>Land cover raster to be reclassified</td></tr>
+  </table>
+  <p><strong>(OUTPUT)</strong></p>
+  <table><tr><th>Label</th><th>Name</th><th>Type</th><th>Description</th></tr>
+    <tr><td>Reclassified Raster</td><td>OUTPUT</td><td>[raster]</td><td>Raster with new class labels</td></tr>
+  </table>
+</section>
+
+<section class="js-section">
+  <h3 class="section__title" id="transition-matrix">Land Cover Insight</h3>
+  <p>Calculates land cover transition between classes land cover over time in the form of a transition matrix.</p>
+  <p><strong>(PARAMETER)</strong></p>
+  <table><tr><th>Label</th><th>Name</th><th>Type</th><th>Description</th></tr>
+    <tr><td>Initial Raster</td><td>INPUT1</td><td>[raster]</td><td>Initial raster</td></tr>
+    <tr><td>Final Raster</td><td>INPUT2</td><td>[raster]</td><td>Final raster</td></tr>
+  </table>
+  <p><strong>(OUTPUT)</strong></p>
+  <p>Produces output including statistical area charts of land cover, a land cover transition matrix (in area/km²), a heat map of the transition matrix, and descriptive explanatory text.</p>
+  <table><tr><th>Label</th><th>Name</th><th>Type</th><th>Description</th></tr>
+    <tr><td>Matrix Table</td><td>OUTPUT</td><td>[CSV/Table]</td><td>Transition matrix expressed in area and percentage units</td></tr>
+  </table>
+</section>
+
+<section class="js-section">
+  <h3 class="section__title" id="dependent-insight">Dependent Insight</h3>
+  <p>Displays the relationship between land cover area and dependent variables, along with charts and visualizations of the land cover centroid shift. Users can also input variables such as GDRP, population, and others</p>
+  <p><strong>(OUTPUT)</strong></p>
+  <table><tr><th>Label</th><th>Name</th><th>Type</th><th>Description</th></tr>
+    <tr><td>Plot</td><td>CHART</td><td>[PNG]</td><td>Scatterplot visualization of variable relationships</td></tr>
+  </table>
+</section>
+
+<section class="js-section">
+  <h3 class="section__title" id="regression">Regression</h3>
+  <p>Performs spatial regression between land cover classes and dependent variables using Common, Fixed, and Random Effect models, along with descriptive textual interpretation.</p>
+  <p><strong>(OUTPUT)</strong></p>
+  <table><tr><th>Label</th><th>Name</th><th>Type</th><th>Description</th></tr>
+    <tr><td>Hasil Regresi</td><td>CSV</td><td>[Table]</td><td>Estimation results and coefficient values</td></tr>
+    <tr><td>Plot</td><td>PNG</td><td>[Image]</td><td>Regression result chart</td></tr>
+  </table>
+</section>
+
+<section class="js-section">
+  <h3 class="section__title" id="estimation">Estimation</h3>
+  <p>Performs area estimation of future land cover classes based on the transition matrix.</p>
+  <p><strong>(PARAMETER)</strong></p>
+  <table><tr><th>Label</th><th>Name</th><th>Type</th><th>Description</th></tr>
+    <tr><td>Transition Matrix</td><td>MATRIX</td><td>[CSV]</td><td>Initial Matrix</td></tr>
+    <tr><td>Number of Years</td><td>YEARS</td><td>[Integer]</td><td>Number of years ahead</td></tr>
+  </table>
+  <p><strong>(OUTPUT)</strong></p>
+  <p>MProduces output including land cover class percentages, class-to-class transition matrices, future land cover class estimations, and comparative charts adjusted to the temporal interval.</p>
+  <table><tr><th>Label</th><th>Name</th><th>Type</th><th>Description</th></tr>
+    <tr><td>Estimated Area</td><td>TABLE</td><td>[CSV]</td><td>Estimated area of future land cover classes</td></tr>
+  </table>
+</section>
+
+  
+<section class="js-section">
+  <h3 class="section__title" id="citycenter">City Center Trend Analysis</h3>
+  <p>Analysis of built-up center shift dari land cover multitemporal.</p>
+  <p><strong>(PARAMETER)</strong></p>
+  <table>
+    <tr><th>Label</th><th>Name</th><th>Type</th><th>Description</th></tr>
+    <tr><td>Input Land Cover Layers</td><td>INPUT</td><td>[raster: multiple]</td><td>Land cover raster layers from different time periods</td></tr>
+    <tr><td>Built-up Value</td><td>BUILD</td><td>[number]</td><td>A value that represents the built-up area in the land cover</td></tr>
+  </table>
+  <p><strong>(OUTPUT)</strong></p>
+  <p>Generates the distribution of center of mass points and their directional shifts.</p>
+  <table>
+    <tr><th>Label</th><th>Name</th><th>Type</th><th>Description</th></tr>
+    <tr><td>Centroid and Line Layer</td><td>OUTPUT</td><td>[vector: point+line]</td><td>Layer of built-up center points and their directional shifts</td></tr>
+  </table>
+</section>
+
+<section class="js-section">
+  <h3 class="section__title" id="localmorans">Detecting Spatial Clusters and Outliers</h3>
+  <p>Detects HH, LL, HL, and LH patterns based on variable values and their spatial relationships using Local Moran's I.</p>
+  <p><strong>(PARAMETER)</strong></p>
+  <table>
+    <tr><th>Label</th><th>Name</th><th>Type</th><th>Description</th></tr>
+    <tr><td>Input Layer</td><td>INPUT</td><td>[vector: polygon]</td><td>Input polygon layer</td></tr>
+    <tr><td>Variable</td><td>VARIABLE</td><td>[field: numeric]</td><td>Numeric field value</td></tr>
+    <tr><td>ID Field</td><td>ID_FIELD</td><td>[field]</td><td>Identifier field unit spaTial</td></tr>
+    <tr><td>Method</td><td>METHOD</td><td>[enum]</td><td>Queen/Rook/KNN/Distance Band</td></tr>
+    <tr><td>KNN/Threshold</td><td>KNN_DIST</td><td>[number]</td><td>Spatial weight parameters</td></tr>
+  </table>
+  <p><strong>(OUTPUT)</strong></p>
+  <p>Generates a layer based on the parameter calculation results, accompanied by descriptive text and a CSV table as output.</p>
+  <table>
+    <tr><th>Label</th><th>Name</th><th>Type</th><th>Description</th></tr>
+    <tr><td>Result Layer</td><td>OUTPUT</td><td>[vector]</td><td>Layer with HH, LL, HL, LH classification fields</td></tr>
+    <tr><td>CSV</td><td>CSV_OUTPUT</td><td>[file]</td><td>CSV summary of values and classifications</td></tr>
+  </table>
+</section>
+
+<section class="js-section">
+  <h3 class="section__title" id="lq">Economic Sector Specialization Analysis</h3>
+  <p>Measures economic sector specialization using the Location Quotient (LQ) method.</p>
+  <p><strong>(PARAMETER)</strong></p>
+  <table>
+    <tr><th>Label</th><th>Name</th><th>Type</th><th>Description</th></tr>
+    <tr><td>Input Layer</td><td>INPUT</td><td>[vector]</td><td>Input spatial layer</td></tr>
+    <tr><td>Sector Value</td><td>VARIABLEX</td><td>[field]</td><td>Specific Sector Value</td></tr>
+    <tr><td>Total Value</td><td>VARIABLEY</td><td>[field]</td><td>Total value of all sectors</td></tr>
+  </table>
+  <p><strong>(OUTPUT)</strong></p>
+  <p>Generates a layer based on the parameter calculation results, accompanied by descriptive text and a CSV table as output.</p>
+  <table>
+    <tr><th>Label</th><th>Name</th><th>Type</th><th>Description</th></tr>
+    <tr><td>Output Layer</td><td>OUTPUT</td><td>[vector]</td><td>LQ field, classification, and interpretation</td></tr>
+    <tr><td>CSV Output</td><td>CSV_OUTPUT</td><td>[file]</td><td>Exported LQ result table</td></tr>
+  </table>
+</section>
+
+<section class="js-section">
+  <h3 class="section__title" id="globalmorans">Global Spatial Pattern Analysis</h3>
+  <p>Calculates Global Moran’s I to determine whether the spatial distribution of a variable is clustered, dispersed, or random.</p>
+  <p><strong>(PARAMETER)</strong></p>
+  <table>
+    <tr><th>Label</th><th>Name</th><th>Type</th><th>Description</th></tr>
+    <tr><td>Input Layer</td><td>INPUT</td><td>[vector]</td><td>Polygon or point layer</td></tr>
+    <tr><td>Variable</td><td>VARIABLE</td><td>[field]</td><td>Numeric field value</td></tr>
+    <tr><td>Method</td><td>METHOD</td><td>[enum]</td><td>Spatial weight method</td></tr>
+    <tr><td>K/Threshold</td><td>PARAM</td><td>[number]</td><td>KNN parameters or distance</td></tr>
+    <tr><td>Confidence</td><td>CONFIDENCE</td><td>[enum]</td><td>99%, 95%, 90%</td></tr>
+  </table>
+  <p><strong>(OUTPUT)</strong></p>
+  <p>Produces statistical figures as well as descriptive text and CSV tables as output.</p>
+  <table>
+    <tr><th>Label</th><th>Name</th><th>Type</th><th>Description</th></tr>
+    <tr><td>Plot</td><td>PLOT_OUTPUT</td><td>[PNG]</td><td>Scatterplot Moran’s I</td></tr>
+  </table>
+</section>
+
+</article>
+</div>
+
+    <footer class="footer">
+      Copyright by Tabito Tantarto, Fidella Anindya Kirana, Shanice Putrima Akia. 2025
+      <a
+        href="https://github.com/tabito"
+        target="_blank"
+        class="link link--light"
+        >Source Code</a
+      >.
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>
+      hljs.initHighlightingOnLoad();
+    </script>
+    <script src="scribbler.js"></script>
+  </body>
+</html>

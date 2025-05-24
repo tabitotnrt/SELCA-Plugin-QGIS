@@ -1,0 +1,758 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1193</width>
+    <height>785</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <widget class="QGroupBox" name="groupBox">
+     <property name="font">
+      <font>
+       <pointsize>8</pointsize>
+      </font>
+     </property>
+     <property name="title">
+      <string>SELCA (Socio-Economic and Land Cover Analysis) Dialog</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_2">
+      <item row="1" column="0" colspan="3">
+       <widget class="Line" name="line">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="19" column="2">
+       <widget class="QLabel" name="label_6">
+        <property name="font">
+         <font>
+          <family>Plus Jakarta Sans</family>
+          <pointsize>8</pointsize>
+          <weight>50</weight>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>Final</string>
+        </property>
+       </widget>
+      </item>
+      <item row="21" column="0" colspan="3">
+       <widget class="QTextEdit" name="logWidget"/>
+      </item>
+      <item row="15" column="0">
+       <widget class="QgsFieldComboBox" name="identifierField"/>
+      </item>
+      <item row="17" column="0">
+       <widget class="QgsFieldComboBox" name="initialDependent"/>
+      </item>
+      <item row="14" column="0">
+       <widget class="QLabel" name="label_13">
+        <property name="text">
+         <string>Identifier</string>
+        </property>
+       </widget>
+      </item>
+      <item row="19" column="0">
+       <widget class="QgsFieldComboBox" name="finalDependent"/>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="label_2">
+        <property name="font">
+         <font>
+          <family>Plus Jakarta Sans</family>
+          <pointsize>10</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+          <underline>false</underline>
+         </font>
+        </property>
+        <property name="text">
+         <string>Land Cover</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="QLineEdit" name="initialAlias">
+        <property name="text">
+         <string>initialAlias</string>
+        </property>
+        <property name="maxLength">
+         <number>16</number>
+        </property>
+       </widget>
+      </item>
+      <item row="18" column="0">
+       <layout class="QVBoxLayout" name="dependentVariableLayout"/>
+      </item>
+      <item row="16" column="0">
+       <widget class="QLabel" name="label_11">
+        <property name="text">
+         <string>Field</string>
+        </property>
+       </widget>
+      </item>
+      <item row="8" column="2">
+       <widget class="QLabel" name="label_5">
+        <property name="font">
+         <font>
+          <family>Plus Jakarta Sans</family>
+          <pointsize>8</pointsize>
+          <weight>50</weight>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>Final</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="2">
+       <widget class="QLabel" name="label_4">
+        <property name="font">
+         <font>
+          <family>Plus Jakarta Sans</family>
+          <pointsize>8</pointsize>
+          <weight>50</weight>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>Initial</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="2">
+       <widget class="QPushButton" name="addLandCoverButton">
+        <property name="font">
+         <font>
+          <family>Plus Jakarta Sans</family>
+          <pointsize>8</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Add Land Cover</string>
+        </property>
+       </widget>
+      </item>
+      <item row="32" column="0">
+       <widget class="QPushButton" name="pushButton_4">
+        <property name="font">
+         <font>
+          <family>Plus Jakarta Sans</family>
+          <pointsize>8</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Refresh Layer</string>
+        </property>
+       </widget>
+      </item>
+      <item row="8" column="1">
+       <widget class="QLineEdit" name="finalAlias">
+        <property name="inputMask">
+         <string/>
+        </property>
+        <property name="text">
+         <string>finalAlias</string>
+        </property>
+        <property name="maxLength">
+         <number>16</number>
+        </property>
+       </widget>
+      </item>
+      <item row="20" column="0" colspan="3">
+       <widget class="Line" name="line_3">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="31" column="0" colspan="3">
+       <widget class="QProgressBar" name="progressBar">
+        <property name="value">
+         <number>0</number>
+        </property>
+       </widget>
+      </item>
+      <item row="10" column="0">
+       <widget class="QLabel" name="label_3">
+        <property name="font">
+         <font>
+          <family>Plus Jakarta Sans</family>
+          <pointsize>10</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+          <underline>false</underline>
+         </font>
+        </property>
+        <property name="text">
+         <string>Dependent Variable</string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="0" colspan="3">
+       <layout class="QHBoxLayout" name="rowLayout">
+        <item>
+         <layout class="QVBoxLayout" name="landCoverLayout"/>
+        </item>
+        <item>
+         <layout class="QVBoxLayout" name="aliasLayout">
+          <property name="spacing">
+           <number>7</number>
+          </property>
+          <property name="leftMargin">
+           <number>10</number>
+          </property>
+         </layout>
+        </item>
+       </layout>
+      </item>
+      <item row="13" column="0">
+       <widget class="QgsMapLayerComboBox" name="layerDependent"/>
+      </item>
+      <item row="32" column="1" colspan="2">
+       <widget class="QPushButton" name="pushhelp">
+        <property name="text">
+         <string>Help</string>
+        </property>
+       </widget>
+      </item>
+      <item row="11" column="0">
+       <widget class="QLineEdit" name="aliasDependent">
+        <property name="text">
+         <string>Dependent Alias</string>
+        </property>
+        <property name="maxLength">
+         <number>16</number>
+        </property>
+       </widget>
+      </item>
+      <item row="9" column="0" colspan="3">
+       <widget class="Line" name="line_2">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="17" column="2">
+       <widget class="QLabel" name="label_7">
+        <property name="font">
+         <font>
+          <family>Plus Jakarta Sans</family>
+          <pointsize>8</pointsize>
+          <weight>50</weight>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>Initial</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0">
+       <widget class="QLabel" name="label">
+        <property name="font">
+         <font>
+          <family>Plus Jakarta Sans</family>
+          <pointsize>12</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>Input Parameters</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QgsMapLayerComboBox" name="initialLC">
+        <property name="allowEmptyLayer">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="8" column="0">
+       <widget class="QgsMapLayerComboBox" name="finalLC"/>
+      </item>
+      <item row="12" column="0">
+       <widget class="QLabel" name="label_12">
+        <property name="text">
+         <string>Layer</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="3" rowspan="34">
+       <widget class="QTabWidget" name="tabPredict">
+        <property name="minimumSize">
+         <size>
+          <width>781</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>Plus Jakarta Sans</family>
+          <pointsize>8</pointsize>
+         </font>
+        </property>
+        <property name="currentIndex">
+         <number>4</number>
+        </property>
+        <widget class="QWidget" name="tabAssignClass">
+         <attribute name="title">
+          <string>Assign Class</string>
+         </attribute>
+         <layout class="QGridLayout" name="gridLayout_5">
+          <item row="0" column="0">
+           <widget class="QPushButton" name="pushFetchUniqueValues">
+            <property name="text">
+             <string>Fetch Unique Values</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <layout class="QVBoxLayout" name="classLayout"/>
+          </item>
+          <item row="2" column="0">
+           <widget class="QPushButton" name="pushAssignClass">
+            <property name="text">
+             <string>Assign Class</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="tabCrosstab">
+         <attribute name="title">
+          <string>Land Cover Insight</string>
+         </attribute>
+         <layout class="QGridLayout" name="gridLayout_3">
+          <item row="0" column="0">
+           <widget class="QLabel" name="label_9">
+            <property name="font">
+             <font>
+              <family>Plus Jakarta Sans</family>
+              <pointsize>10</pointsize>
+              <weight>50</weight>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>Areal Statistics</string>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="0">
+           <widget class="QTableView" name="tableTransition"/>
+          </item>
+          <item row="0" column="1">
+           <widget class="QPushButton" name="pushUpdateAtas">
+            <property name="text">
+             <string>Update Table</string>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="1">
+           <widget class="QGraphicsView" name="graphicsTransition"/>
+          </item>
+          <item row="7" column="0">
+           <widget class="QPushButton" name="ExportLandCoverInsight">
+            <property name="text">
+             <string>Export Data</string>
+            </property>
+           </widget>
+          </item>
+          <item row="7" column="1">
+           <widget class="QPushButton" name="CreateChangeMap">
+            <property name="text">
+             <string>Create Change Map</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QTextEdit" name="textDeskriptif"/>
+          </item>
+          <item row="1" column="0">
+           <widget class="QGraphicsView" name="graphicsLuas"/>
+          </item>
+          <item row="4" column="1">
+           <widget class="QLabel" name="label_17">
+            <property name="font">
+             <font>
+              <family>MS Shell Dlg 2</family>
+              <pointsize>10</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>Land Cover Transition Heatmap (in %)</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="0">
+           <widget class="QLabel" name="label_8">
+            <property name="font">
+             <font>
+              <family>Plus Jakarta Sans</family>
+              <pointsize>10</pointsize>
+              <weight>50</weight>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>Land Cover Transition Matrix (Area in km²)</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="tabDependent">
+         <attribute name="title">
+          <string>Dependent Insight</string>
+         </attribute>
+         <layout class="QGridLayout" name="gridLayout_6">
+          <item row="0" column="3">
+           <widget class="QComboBox" name="observedClass"/>
+          </item>
+          <item row="0" column="1">
+           <widget class="QPushButton" name="pushButtonUpdate">
+            <property name="text">
+             <string>Update Table</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QPushButton" name="pushButtonDependent">
+            <property name="text">
+             <string>Fetch Region</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0" colspan="4">
+           <widget class="QTabWidget" name="tabWidgetAbangku">
+            <property name="currentIndex">
+             <number>-1</number>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="2">
+           <widget class="QLabel" name="label_16">
+            <property name="text">
+             <string>Insert LandCover Classification Value</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="0" colspan="4">
+           <widget class="QPushButton" name="ExportDedendent">
+            <property name="text">
+             <string>Export Data</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="tabRegresi">
+         <attribute name="title">
+          <string>Regression</string>
+         </attribute>
+         <layout class="QGridLayout" name="gridLayout_4">
+          <item row="6" column="0">
+           <widget class="QLabel" name="label_11">
+            <property name="text">
+             <string>Pearson Correlation</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="3">
+           <widget class="QPushButton" name="pushRegresi">
+            <property name="text">
+             <string>Run</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="1">
+           <widget class="QComboBox" name="observedField"/>
+          </item>
+          <item row="7" column="1" colspan="2">
+           <widget class="QLabel" name="label_14">
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="0" colspan="4">
+           <widget class="QGraphicsView" name="graphicsRegresi"/>
+          </item>
+          <item row="4" column="0" colspan="4">
+           <widget class="QWidget" name="plotWidget" native="true"/>
+          </item>
+          <item row="8" column="0" colspan="4">
+           <widget class="QPushButton" name="ExportDataRegresi">
+            <property name="text">
+             <string>Export Data</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QLabel" name="label_10">
+            <property name="font">
+             <font>
+              <family>Plus Jakarta Sans</family>
+              <pointsize>8</pointsize>
+              <weight>50</weight>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>Methods</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0" colspan="3">
+           <widget class="QComboBox" name="inputMethods">
+            <item>
+             <property name="text">
+              <string>Common Effect Model</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Fixed Effects Model</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Random Effects Model</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item row="6" column="1" colspan="2">
+           <widget class="QLabel" name="labelPearson">
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="0">
+           <widget class="QLabel" name="label_15">
+            <property name="text">
+             <string>Observed Class</string>
+            </property>
+           </widget>
+          </item>
+          <item row="7" column="0">
+           <widget class="QLabel" name="label_13">
+            <property name="text">
+             <string>Regression Equation </string>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="0" colspan="4">
+           <widget class="QLabel" name="descriptionLabel">
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="tabForecast">
+         <attribute name="title">
+          <string>Estimation</string>
+         </attribute>
+         <widget class="QLabel" name="label_24">
+          <property name="geometry">
+           <rect>
+            <x>11</x>
+            <y>11</y>
+            <width>251</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Iteration(s)</string>
+          </property>
+         </widget>
+         <widget class="QgsSpinBox" name="temporalJump">
+          <property name="geometry">
+           <rect>
+            <x>110</x>
+            <y>10</y>
+            <width>69</width>
+            <height>24</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="pushForecast">
+          <property name="geometry">
+           <rect>
+            <x>380</x>
+            <y>40</y>
+            <width>281</width>
+            <height>28</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Generate Estimation</string>
+          </property>
+         </widget>
+         <widget class="QWidget" name="gridLayoutWidget">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>70</y>
+            <width>751</width>
+            <height>621</height>
+           </rect>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_10">
+           <item row="0" column="1">
+            <widget class="QLabel" name="label_26">
+             <property name="text">
+              <string>Transition Matrix (in %)</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <widget class="QLabel" name="label_25">
+             <property name="text">
+              <string>Initial Class Area</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QTableView" name="tableInitialArea"/>
+           </item>
+           <item row="1" column="1">
+            <widget class="QTableView" name="tableTransitionMat">
+             <property name="font">
+              <font>
+               <family>MS Shell Dlg 2</family>
+               <pointsize>6</pointsize>
+              </font>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="0">
+            <widget class="QTableView" name="tableForecastedArea"/>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLabel" name="label_27">
+             <property name="text">
+              <string>Estimated Class Area</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <widget class="QLabel" name="label_28">
+             <property name="text">
+              <string>Initial and Estimated Graph</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="1">
+            <widget class="QGraphicsView" name="graphicsInitialForecast"/>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QPushButton" name="pushFetch">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>40</y>
+            <width>281</width>
+            <height>28</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Generate Transition Matrix</string>
+          </property>
+         </widget>
+        </widget>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QgsFieldComboBox</class>
+   <extends>QComboBox</extends>
+   <header>qgsfieldcombobox.h</header>
+  </customwidget>
+  <customwidget>
+   <class>QgsMapLayerComboBox</class>
+   <extends>QComboBox</extends>
+   <header>qgsmaplayercombobox.h</header>
+  </customwidget>
+  <customwidget>
+   <class>QgsSpinBox</class>
+   <extends>QSpinBox</extends>
+   <header>qgsspinbox.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>layerDependent</sender>
+   <signal>layerChanged(QgsMapLayer*)</signal>
+   <receiver>initialDependent</receiver>
+   <slot>setLayer(QgsMapLayer*)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>94</x>
+     <y>282</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>110</x>
+     <y>399</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>layerDependent</sender>
+   <signal>layerChanged(QgsMapLayer*)</signal>
+   <receiver>finalDependent</receiver>
+   <slot>setLayer(QgsMapLayer*)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>56</x>
+     <y>284</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>75</x>
+     <y>438</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>layerDependent</sender>
+   <signal>layerChanged(QgsMapLayer*)</signal>
+   <receiver>identifierField</receiver>
+   <slot>setLayer(QgsMapLayer*)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>54</x>
+     <y>286</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>64</x>
+     <y>335</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

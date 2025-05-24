@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/plugins/selca_analysis" >
+        <file>icon.png</file>
+    </qresource>
+</RCC>

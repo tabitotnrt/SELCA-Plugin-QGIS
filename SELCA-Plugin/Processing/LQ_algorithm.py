@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 /***************************************************************************
- LocationQuotient
+ Economic Sector Specialization Analysis
  A QGIS plugin
 ***************************************************************************/
 """
@@ -86,7 +86,7 @@ class LQ(QgsProcessingAlgorithm):
             self.CSV_OUTPUT, 'CSV Output File', fileFilter='CSV files (*.csv)'
         ))
         self.addParameter(QgsProcessingParameterFeatureSink(
-            self.OUTPUT, 'Location Quotient Output', createByDefault=True
+            self.OUTPUT, 'Economic Sector Specialization Analysis Output', createByDefault=True
         ))
 
     def processAlgorithm(self, parameters, context, model_feedback):
@@ -170,7 +170,7 @@ class LQ(QgsProcessingAlgorithm):
 
         model_feedback.pushInfo(f"\n📁 CSV file will be saved to:\n{csv_path}")
 
-        model_feedback.pushInfo("\n--- Location Quotient (LQ) Analysis Report ---")
+        model_feedback.pushInfo("\n--- Economic Sector Specialization Analysis Analysis Report ---")
         model_feedback.pushInfo(f"Input sector variable (X): '{variableX}'")
         model_feedback.pushInfo(f"Input total variable (Y): '{variableY}'")
         model_feedback.pushInfo(f"Calculated field: '{lqField}'\n")

@@ -165,7 +165,7 @@ class GlobalMoransI(QgsProcessingAlgorithm):
         }
 
         feedback.pushInfo(f"""
-====== Global Moran's I Summary ======
+====== Global Spatial Pattern Analysis Summary ======
 
 Layer: {layer.name()}
 Variable: {field}

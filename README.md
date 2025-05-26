@@ -1,6 +1,6 @@
 <div style="display: flex; align-items: center;">
   <p align="center"> 
-    <img src="/SELCA-Plugin-QGIS/icon.png" alt="SELCA Logo" style="width: 250px; height: 250px;">
+    <img src="/SELCA-Plugin/icon.png" alt="SELCA Logo" style="width: 250px; height: 250px;">
     <h1>Socio-Economic and Land Cover Analysis (SELCA)</h1>
   </p>
 </div>

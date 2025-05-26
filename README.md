@@ -16,7 +16,7 @@
 ---
 
 <div style="display: flex; align-items: center;">
-  <img src="/icons/assignclass.png" alt="Assign Class" style="width: 100px; height: 100px; margin-right: 20px;">
+  <img src="/SELCA-Plugin/icon.png" alt="Assign Class" style="width: 100px; height: 100px; margin-right: 20px;">
   <h2>Assign Class</h2>
 </div>
 
@@ -25,7 +25,7 @@ Reassigns descriptive labels to land cover raster classes. This helps users tran
 ---
 
 <div style="display: flex; align-items: center;">
-  <img src="/icons/transitionmatrix.png" alt="Transition Matrix" style="width: 100px; height: 100px; margin-right: 20px;">
+  <img src="/SELCA-Plugin/icon.png" alt="Transition Matrix" style="width: 100px; height: 100px; margin-right: 20px;">
   <h2>Land Cover Insight</h2>
 </div>
 
@@ -38,7 +38,7 @@ Generates land cover transition matrix from two raster timeframes. Includes area
 ---
 
 <div style="display: flex; align-items: center;">
-  <img src="/icons/dependentinsight.png" alt="Dependent Insight" style="width: 100px; height: 100px; margin-right: 20px;">
+  <img src="/SELCA-Plugin/icon.png" alt="Dependent Insight" style="width: 100px; height: 100px; margin-right: 20px;">
   <h2>Dependent Insight</h2>
 </div>
 
@@ -47,7 +47,7 @@ Visualizes correlation between land cover changes and dependent variables like p
 ---
 
 <div style="display: flex; align-items: center;">
-  <img src="/icons/regression.png" alt="Regression" style="width: 100px; height: 100px; margin-right: 20px;">
+  <img src="/SELCA-Plugin/icon.png" alt="Regression" style="width: 100px; height: 100px; margin-right: 20px;">
   <h2>Regression</h2>
 </div>
 
@@ -56,16 +56,16 @@ Performs spatial panel regression (Common Effect, Fixed Effect, Random Effect) b
 ---
 
 <div style="display: flex; align-items: center;">
-  <img src="/icons/forecast.png" alt="Forecast" style="width: 100px; height: 100px; margin-right: 20px;">
+  <img src="/SELCA-Plugin/icon.png" alt="Estimation" style="width: 100px; height: 100px; margin-right: 20px;">
   <h2>Estimation</h2>
 </div>
 
-Forecasts future land cover distribution using transition matrix and Markov-based projection, adaptable to user-defined time periods.
+Estimation future land cover distribution using transition matrix and Markov-based projection, adaptable to user-defined time periods.
 
 ---
 
 <div style="display: flex; align-items: center;">
-  <img src="/icons/citytrend.png" alt="City Center Trend" style="width: 100px; height: 100px; margin-right: 20px;">
+  <img src="SELCA-Plugin/Icons/logo4.png" alt="City Center Trend" style="width: 100px; height: 100px; margin-right: 20px;">
   <h2>City Center Trend Analysis</h2>
 </div>
 
@@ -74,7 +74,7 @@ Tracks built-up center shifts across multiple land cover layers over time, displ
 ---
 
 <div style="display: flex; align-items: center;">
-  <img src="/icons/localmorans.png" alt="Local Moran's I" style="width: 100px; height: 100px; margin-right: 20px;">
+  <img src="SELCA-Plugin/Icons/logo3.png" alt="Local Moran's I" style="width: 100px; height: 100px; margin-right: 20px;">
   <h2>Detecting Spatial Clusters and Outliers</h2>
 </div>
 
@@ -83,8 +83,8 @@ Identifies statistically significant spatial clusters and outliers using Local M
 ---
 
 <div style="display: flex; align-items: center;">
-  <img src="/icons/lq.png" alt="LQ Analysis" style="width: 100px; height: 100px; margin-right: 20px;">
-  <h2>Economic Sector Specialization (LQ)</h2>
+  <img src="SELCA-Plugin/Icons/logo5.png" alt="LQ Analysis" style="width: 100px; height: 100px; margin-right: 20px;">
+  <h2>Economic Sector Specialization Analysis</h2>
 </div>
 
 Calculates the Location Quotient (LQ) to evaluate sectoral dominance and specialization within a region compared to the overall average.
@@ -92,7 +92,7 @@ Calculates the Location Quotient (LQ) to evaluate sectoral dominance and special
 ---
 
 <div style="display: flex; align-items: center;">
-  <img src="/icons/globalmorans.png" alt="Global Moran's I" style="width: 100px; height: 100px; margin-right: 20px;">
+  <img src="SELCA-Plugin/Icons/logo2.png" alt="Global Moran's I" style="width: 100px; height: 100px; margin-right: 20px;">
   <h2>Global Spatial Pattern Analysis</h2>
 </div>
 

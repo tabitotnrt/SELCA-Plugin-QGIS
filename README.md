@@ -31,9 +31,6 @@ Reassigns descriptive labels to land cover raster classes. This helps users tran
 
 Generates land cover transition matrix from two raster timeframes. Includes area change stats, transition heatmaps, and descriptive insights for each class transformation.
 
-| Input | Output |
-|-------|--------|
-| ![Input](/icons/ToolExample/InputMatrix.png) | ![Output](/icons/ToolExample/OutputMatrix.png) |
 
 ---
 

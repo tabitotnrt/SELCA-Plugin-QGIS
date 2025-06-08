@@ -140,10 +140,10 @@ class LocalMoransI(QgsProcessingAlgorithm):
 
         data.to_csv(csv_path, index=False, encoding='utf-8')
 
-        outputPath = os.path.join(tempfile.gettempdir(), 'local_morans_results.shp')
+        outputPath = os.path.join(tempfile.gettempdir(), 'detecting_spatial_clusters_results.shp')
         data.to_file(outputPath, encoding='utf-8')
 
-        vectorLayer = QgsVectorLayer(outputPath, "Local Moran's I", "ogr")
+        vectorLayer = QgsVectorLayer(outputPath, "Detecting Spatial Clusters and Outliers", "ogr")
         vectorLayer.setCrs(layerSource.crs())
 
         # --- Apply symbology ---

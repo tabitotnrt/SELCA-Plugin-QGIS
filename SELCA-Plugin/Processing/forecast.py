@@ -8,7 +8,7 @@ import tempfile
 from qgis.PyQt.QtGui import QPixmap
 
 def perform_forecasting(dialog):
-    """Perform forecasting based on initial area and transition matrix using iterative method with area conservation."""
+    """Perform estimating based on initial area and transition matrix using iterative method with area conservation."""
     try:
         # Fetch temporal jump multiplier
         temporal_jump = dialog.temporalJump.value()
@@ -22,9 +22,9 @@ def perform_forecasting(dialog):
 
         initial_data = {}
         for row in range(initial_model.rowCount(None)):
-            class_name = int(initial_model.data(initial_model.index(row, 0), Qt.DisplayRole))  # Convert to int
-            area = float(initial_model.data(initial_model.index(row, 1), Qt.DisplayRole))
-            initial_data[class_name] = area
+            class_code = int(initial_model.data(initial_model.index(row, 0), Qt.DisplayRole))  # Kolom 0: kode kelas
+            area = float(initial_model.data(initial_model.index(row, 2), Qt.DisplayRole))      # Kolom 2: area
+            initial_data[class_code] = area
 
         dialog.logWidget.append(f"Initial areas: {initial_data}")
 
@@ -34,7 +34,7 @@ def perform_forecasting(dialog):
             dialog.logWidget.append("Error: Transition matrix data is missing.")
             return
 
-        classes = [int(transition_model.headerData(col, Qt.Horizontal, Qt.DisplayRole)) for col in range(transition_model.columnCount(None))]  # Convert to int
+        classes = [int(transition_model.headerData(col, Qt.Horizontal, Qt.DisplayRole)) for col in range(transition_model.columnCount(None))]
         transition_matrix = np.zeros((len(classes), len(classes)))
 
         for row in range(transition_model.rowCount(None)):
@@ -44,13 +44,13 @@ def perform_forecasting(dialog):
 
         dialog.logWidget.append(f"Transition matrix before normalization:\n{transition_matrix}")
 
-        # Normalize transition matrix rows to ensure they sum to 1
+        # Normalize transition matrix rows
         row_sums = transition_matrix.sum(axis=1, keepdims=True)
         transition_matrix = np.divide(transition_matrix, row_sums, where=row_sums != 0)
         dialog.logWidget.append(f"Transition matrix after normalization:\n{transition_matrix}")
 
         # Prepare initial area vector
-        initial_areas = np.array([initial_data.get(cls, 0) for cls in classes])  # Ensure matching keys
+        initial_areas = np.array([initial_data.get(cls, 0) for cls in classes])
         dialog.logWidget.append(f"Initial areas array: {initial_areas}")
         total_area = np.sum(initial_areas)
 
@@ -65,10 +65,10 @@ def perform_forecasting(dialog):
         # Update tableForecastedArea
         total_forecasted_area = np.sum(forecasted_areas)
         forecasted_data = [
-            [cls, f"{area:.2f}", f"{(area / total_forecasted_area) * 100:.2f}%"]
+            [dialog.classAliases.get(cls, str(cls)), f"{area:.2f}", f"{(area / total_forecasted_area) * 100:.2f}%"]
             for cls, area in zip(classes, forecasted_areas)
         ]
-        headers = ["Class", "Estimated Area (km²)", "Percentage"]
+        headers = ["Class Name", "Estimated Area (km²)", "Percentage"]
         forecasted_model = TableModel(forecasted_data, headers)
         dialog.tableForecastedArea.setModel(forecasted_model)
         dialog.tableForecastedArea.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
@@ -86,7 +86,7 @@ def perform_forecasting(dialog):
         ax.set_xlabel("Class")
         ax.set_ylabel("Area (km²)")
         ax.set_xticks(x)
-        ax.set_xticklabels(classes, rotation=15, ha='right')
+        ax.set_xticklabels([str(cls) for cls in classes], rotation=15, ha='right')
         ax.legend()
 
         plt.tight_layout()
@@ -107,7 +107,8 @@ def perform_forecasting(dialog):
         plt.close(fig)
         dialog.logWidget.append("Generating completed successfully.")
     except Exception as e:
-        dialog.logWidget.append(f"Error during forecasting: {str(e)}")
+        dialog.logWidget.append(f"Error during estimating: {str(e)}")
+
 
 def fetch_forecast_data(dialog):
     """Fetch data for initial area and transition matrix."""
@@ -122,11 +123,13 @@ def fetch_forecast_data(dialog):
         dialog.logWidget.append("Generating initial area data...")
         area_stats = compute_area_statistics(finalLC.source())
         total_area = sum(area_stats.values())
+
+        # Tampilkan Class Code dan Class Name
         data = [
-            [dialog.classAliases.get(cls, str(cls)), f"{area:.2f}", f"{(area / total_area) * 100:.2f}%"]
+            [cls, dialog.classAliases.get(cls, str(cls)), f"{area:.2f}", f"{(area / total_area) * 100:.2f}%"]
             for cls, area in sorted(area_stats.items())
         ]
-        headers = ["Class", "Area (km²)", "Percentage"]
+        headers = ["Class Code", "Class Name", "Area (km²)", "Percentage"]
         model = TableModel(data, headers)
         dialog.tableInitialArea.setModel(model)
         dialog.tableInitialArea.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
